@@ -2,6 +2,8 @@
 
 A Visual Studio Code extension that shows a customizable panel of tiles for quickly opening files, URLs, or running commands. Tiles are organized into groups and configured via settings (User / Workspace / Folder). Settings are merged hierarchically with lower scopes overriding higher ones.
 
+![Screenshot](https://github.com/dmitribatulin/quick-access-extension/blob/main/doc/Screenshot.png?raw=true)
+
 ## Highlights
 
 - Editor Webview panel with grouped tiles
