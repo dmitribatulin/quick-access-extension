@@ -1,0 +1,174 @@
+{
+  "name": "quick-access-extension",
+  "displayName": "Quick Access Tiles",
+  "description": "Customizable quick access tile panel for files, URLs, and commands with hierarchical settings.",
+  "version": "0.0.1",
+  "publisher": "DmitriBatulin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DmitriBatulin/quick-access-extension"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:quickAccessTiles.openPanel"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "quickAccessTiles.openPanel",
+        "title": "Open Quick Access Tiles",
+        "icon": {
+          "light": "media/icon-light.svg",
+          "dark": "media/icon-dark.svg"
+        }
+      },
+      {
+        "command": "quickAccessTiles.refresh",
+        "title": "Refresh Quick Access Tiles"
+      }
+    ],
+    "configuration": {
+      "title": "Quick Access Tiles",
+      "properties": {
+        "quickAccessTiles.defaultTileOptions.backgroundColor": {
+          "type": "string",
+          "default": "#2d2d2d",
+          "description": "Base background color applied to the tile's icon panel (and used as a fallback for tiles missing an explicit backgroundColor). Accepts any CSS color value."
+        },
+        "quickAccessTiles.defaultTileOptions.borderColor": {
+          "type": "string",
+          "default": "#444444",
+          "description": "Default resting border color for all tiles. Each tile may override; hover state uses the theme accent automatically."
+        },
+        "quickAccessTiles.defaultTileOptions.hoverOverlayColor": {
+          "type": "string",
+          "default": "rgba(255,255,255,0.1)",
+          "description": "Legacy hover overlay tint (currently not visually emphasized after redesign). Kept for forward compatibility; may be repurposed for subtle hover layering."
+        },
+        "quickAccessTiles.defaultTileOptions.textColor": {
+          "type": "string",
+          "default": "#ffffff",
+          "description": "Fallback text (title & description) color when a tile does not set its own textColor. Uses theme foreground if omitted entirely."
+        },
+        "quickAccessTiles.defaultTileOptions.iconSize": {
+          "type": "number",
+          "default": 32,
+          "description": "Logical icon size (px) hint for image/SVG scaling before final constraints. Actual rendered max may be capped by layout (currently 64px)."
+        },
+        "quickAccessTiles.tileGroups": {
+          "type": "array",
+          "description": "Ordered collection of tile groups. Each group defines a name and an array of tiles (maintaining declared order). Tiles can perform multiple actions: open file, open URL, run command.",
+          "default": [],
+          "items": {
+            "$ref": "./schemas/tiles.schema.json#/definitions/tileGroup"
+          }
+        },
+        "quickAccessTiles.customCssFiles": {
+          "type": "array",
+          "description": "Additional stylesheet files to inject into the panel (absolute or workspace-relative paths or URLs). Merged hierarchically (User < Workspace < Folder). Loaded after core CSS allowing theme overrides.",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "quickAccessTiles.customJsFiles": {
+          "type": "array",
+          "description": "Additional JavaScript files to inject (absolute/workspace-relative/URL). Executed after the built-in panel script. Use for custom behaviors; runs within the isolated webview sandbox.",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "quickAccessTiles.ui.showEditorTitleButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show an action button in the active editor title bar that opens the Quick Tiles panel."
+        },
+        "quickAccessTiles.ui.showPanelTitleButton": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show an action button in various built-in panel title areas (Problems / Output / Terminal / Debug Console) to open the Quick Tiles panel."
+        },
+        "quickAccessTiles.ui.showStatusBarButton": {
+          "type": "boolean",
+          "default": false,
+          "description": "Add a status bar entry (left segment) that opens the Quick Tiles panel when clicked. Useful when editor/title buttons are disabled."
+        }
+      }
+    },
+    "menus": {
+      "editor/title": [
+        {
+          "command": "quickAccessTiles.openPanel",
+          "when": "config.quickAccessTiles.ui.showEditorTitleButton",
+          "group": "navigation@99"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "quickAccessTiles.openPanel",
+          "when": "config.quickAccessTiles.ui.showPanelTitleButton && view == terminal",
+          "group": "navigation@99"
+        },
+        {
+          "command": "quickAccessTiles.openPanel",
+          "when": "config.quickAccessTiles.ui.showPanelTitleButton && view == workbench.panel.output",
+          "group": "navigation@99"
+        },
+        {
+          "command": "quickAccessTiles.openPanel",
+          "when": "config.quickAccessTiles.ui.showPanelTitleButton && view == workbench.panel.markers",
+          "group": "navigation@99"
+        },
+        {
+          "command": "quickAccessTiles.openPanel",
+          "when": "config.quickAccessTiles.ui.showPanelTitleButton && view == workbench.panel.debugConsole",
+          "group": "navigation@99"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "quickAccessTiles.openPanel"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "quickAccessTiles.openPanel",
+        "key": "ctrl+alt+q",
+        "when": "editorFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish:vsce": "vsce publish",
+    "publish:ovsx": "ovsx publish --packagePath $(npm pack --silent | tail -n 1 | tr -d '\n')",
+    "lint": "eslint src --ext ts",
+    "format:editorconfig": "bash ./scripts/format-with-editorconfig.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/uuid": "^10.0.0",
+    "@types/vscode": "^1.85.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.4.0",
+    "vsce": "^2.15.0",
+    "ovsx": "^0.8.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
+}

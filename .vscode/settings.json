@@ -1,0 +1,26 @@
+{
+  "editor.rulers": [
+    {
+      "column": 120
+    }
+  ],
+  "editor.codeActionsOnSave": {
+    "source.removeUnusedImports": "never",
+    "source.sortImports": "explicit"
+  },
+
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  // ================================================================================
+  // #---                     EXTENSION SETTINGS
+  // ================================================================================
+
+  // --- Prettier configs
+  // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+  "prettier.enable": true, // important
+  "prettier.useEditorConfig": true, // important
+  "prettier.ignorePath": ".prettierignore"
+}

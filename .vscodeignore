@@ -1,0 +1,26 @@
+# Exclude development-only files from the VSIX package
+
+# VCS / editor
+**/.git/**
+**/.github/**
+**/.vscode/**
+.gitignore
+.vscodeignore
+
+# Sources (only ship compiled JS in dist)
+src/**
+tsconfig.json
+.eslintrc.*
+.prettierrc*
+
+# Tests & local tooling
+.vscode-test/**
+**/test/**
+**/__tests__/**
+**/*.spec.*
+**/*.test.*
+
+# Maps (optional; keep if you want debugging in production)
+**/*.map
+
+# NOTE: Do NOT exclude node_modules — runtime deps (e.g. uuid) must be packaged.
