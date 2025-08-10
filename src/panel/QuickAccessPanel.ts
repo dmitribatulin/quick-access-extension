@@ -1,12 +1,12 @@
-import * as vscode from 'vscode';
-import { TileManager } from '../tiles/TileManager';
-import { getWebviewContent } from './getWebviewContent';
-import { TileResolver } from '../tiles/TileResolver';
-import * as path from 'path';
+import * as path from "path";
+import * as vscode from "vscode";
+import { TileManager } from "../tiles/TileManager";
+import { TileResolver } from "../tiles/TileResolver";
+import { getWebviewContent } from "./getWebviewContent";
 
 // Refactored: now manages a WebviewPanel in the editor area instead of a sidebar webview view.
 export class QuickAccessPanel {
-  public static readonly viewType = 'quickAccessTiles.panel';
+  public static readonly viewType = "quickAccessTiles.panel";
   private static current?: QuickAccessPanel;
 
   private panel: vscode.WebviewPanel;
@@ -33,12 +33,12 @@ export class QuickAccessPanel {
 
     const panel = vscode.window.createWebviewPanel(
       QuickAccessPanel.viewType,
-      'Quick Tiles',
+      "Quick Tiles",
       { viewColumn: column, preserveFocus: false },
       {
         enableScripts: true,
         retainContextWhenHidden: true,
-        localResourceRoots: [context.extensionUri]
+        localResourceRoots: [context.extensionUri],
       }
     );
 
@@ -46,15 +46,19 @@ export class QuickAccessPanel {
   }
 
   private configure() {
-    this.panel.iconPath = vscode.Uri.joinPath(this.context.extensionUri, 'media', 'icon.svg');
+    this.panel.iconPath = vscode.Uri.joinPath(this.context.extensionUri, "media", "icon.svg");
 
     this.tileManager.onDidChange(() => this.render());
 
-    this.panel.webview.onDidReceiveMessage(async (msg) => {
-      if (msg?.type === 'tileClick') {
-        await this.handleTileClick(msg.tile);
-      }
-    }, null, this.disposables);
+    this.panel.webview.onDidReceiveMessage(
+      async (msg) => {
+        if (msg?.type === "tileClick") {
+          await this.handleTileClick(msg.tile);
+        }
+      },
+      null,
+      this.disposables
+    );
 
     this.panel.onDidDispose(() => this.dispose(), null, this.disposables);
 
@@ -67,7 +71,7 @@ export class QuickAccessPanel {
       webview: this.panel.webview,
       context: this.context,
       tiles: this.tileManager.getTiles(),
-      config
+      config,
     });
   }
 
@@ -82,7 +86,9 @@ export class QuickAccessPanel {
       }
     }
     if (tile.url) {
-      try { actions.push(vscode.env.openExternal(vscode.Uri.parse(tile.url))); } catch {}
+      try {
+        actions.push(vscode.env.openExternal(vscode.Uri.parse(tile.url)));
+      } catch {}
     }
     if (tile.command) {
       actions.push(this.runCommand(tile));
@@ -110,10 +116,10 @@ export class QuickAccessPanel {
       term.show(true);
       term.sendText(tile.command, true);
     } else {
-      const cp = require('child_process');
+      const cp = require("child_process");
       try {
         const proc = cp.exec(tile.command, { cwd });
-        proc.on('error', (err: any) => vscode.window.showErrorMessage(`Command failed: ${err.message}`));
+        proc.on("error", (err: any) => vscode.window.showErrorMessage(`Command failed: ${err.message}`));
       } catch (e: any) {
         vscode.window.showErrorMessage(`Cannot run command: ${e.message}`);
       }
@@ -128,7 +134,9 @@ export class QuickAccessPanel {
     QuickAccessPanel.current = undefined;
     while (this.disposables.length) {
       const d = this.disposables.pop();
-      try { d?.dispose(); } catch {}
+      try {
+        d?.dispose();
+      } catch {}
     }
   }
 }

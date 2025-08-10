@@ -1,8 +1,8 @@
 {
-  "name": "quick-access-extension",
+  "name": "quick-access-dashboard",
   "displayName": "Quick Access Tiles",
   "description": "Customizable quick access tile panel for files, URLs, and commands with hierarchical settings.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "DmitriBatulin",
   "repository": {
     "type": "git",

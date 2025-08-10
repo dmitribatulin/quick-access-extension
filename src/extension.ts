@@ -1,7 +1,7 @@
-import * as vscode from 'vscode';
-import { QuickAccessPanel } from './panel/QuickAccessPanel';
-import { TileResolver } from './tiles/TileResolver';
-import { TileManager } from './tiles/TileManager';
+import * as vscode from "vscode";
+import { QuickAccessPanel } from "./panel/QuickAccessPanel";
+import { TileManager } from "./tiles/TileManager";
+import { TileResolver } from "./tiles/TileResolver";
 
 export function activate(context: vscode.ExtensionContext) {
   const resolver = new TileResolver(context);
@@ -9,22 +9,22 @@ export function activate(context: vscode.ExtensionContext) {
   manager.refresh();
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('quickAccessTiles.openPanel', () => {
+    vscode.commands.registerCommand("quickAccessTiles.openPanel", () => {
       QuickAccessPanel.createOrShow(context, manager, resolver);
     }),
-    vscode.commands.registerCommand('quickAccessTiles.refresh', () => manager.refresh())
+    vscode.commands.registerCommand("quickAccessTiles.refresh", () => manager.refresh())
   );
 
   // Status bar button per setting
   let statusItem: vscode.StatusBarItem | undefined;
   const syncStatusBar = () => {
-    const cfg = vscode.workspace.getConfiguration('quickAccessTiles');
-    const show = cfg.get<boolean>('ui.showStatusBarButton', false);
+    const cfg = vscode.workspace.getConfiguration("quickAccessTiles");
+    const show = cfg.get<boolean>("ui.showStatusBarButton", false);
     if (show && !statusItem) {
       statusItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
-      statusItem.text = '$(layout-grid) Tiles';
-      statusItem.tooltip = 'Open Quick Access Tiles';
-      statusItem.command = 'quickAccessTiles.openPanel';
+      statusItem.text = "$(layout-grid) Tiles";
+      statusItem.tooltip = "Open Quick Access Tiles";
+      statusItem.command = "quickAccessTiles.openPanel";
       statusItem.show();
       context.subscriptions.push(statusItem);
     } else if (!show && statusItem) {
@@ -35,11 +35,11 @@ export function activate(context: vscode.ExtensionContext) {
   syncStatusBar();
 
   context.subscriptions.push(
-    vscode.workspace.onDidChangeConfiguration(e => {
-      if (e.affectsConfiguration('quickAccessTiles.ui.showStatusBarButton')) {
+    vscode.workspace.onDidChangeConfiguration((e) => {
+      if (e.affectsConfiguration("quickAccessTiles.ui.showStatusBarButton")) {
         syncStatusBar();
       }
-      if (e.affectsConfiguration('quickAccessTiles')) {
+      if (e.affectsConfiguration("quickAccessTiles")) {
         manager.refresh();
       }
     })

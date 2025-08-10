@@ -29,7 +29,7 @@
         "groupName": { "type": "string" },
         "tiles": {
           "type": "array",
-            "items": { "$ref": "#/definitions/tile" }
+          "items": { "$ref": "#/definitions/tile" }
         }
       },
       "required": ["groupName", "tiles"],

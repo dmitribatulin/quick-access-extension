@@ -1,3 +1,9 @@
-.tile { transition: transform .1s ease; }
-.tile:hover { transform: translateY(-3px); }
-.tile-group-title { color: #4fa3ff; }
+.tile {
+  transition: transform 0.1s ease;
+}
+.tile:hover {
+  transform: translateY(-3px);
+}
+.tile-group-title {
+  color: #4fa3ff;
+}
