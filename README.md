@@ -112,32 +112,6 @@ These arrays merge hierarchically (User < Workspace < Folder). CSS loads after t
 - quickAccessTiles.openPanel — Open Quick Access Tiles
 - quickAccessTiles.refresh — Re-resolve configuration and re-render
 
-## Development
-
-- npm install
-- npm run watch
-- Press F5 to launch the Extension Development Host
-
-## Packaging
-
-- Ensure publisher is set in package.json and you’re logged in with vsce
-- Manual: npm run package
-- Publish to Marketplace: npm run publish:vsce (requires VSCE_PAT if used in CI)
-- Publish to Open VSX: npm run publish:ovsx (requires OVSX_PAT)
-
-## CI publishing (GitHub Actions)
-
-This repo includes .github/workflows/publish.yml. Tag a release like v0.1.0 to build and publish. Configure repository secrets:
-
-- VSCE_PAT — Personal Access Token for Visual Studio Marketplace
-- OVSX_PAT — Token for Open VSX (optional)
-
 ## License
 
 MIT
-
-## Extension icon
-
-- Place your PNG icon at `media/extension-icon-light.png` (recommended 256×256, square, transparent background).
-- The listing icon is configured in `package.json` via the `icon` field.
-- This repo keeps an SVG source (`media/extension-icon-light.svg`) and generates PNG during prepublish (`npm run build:icons`). To improve rasterization, install optional dependency `canvas`.
