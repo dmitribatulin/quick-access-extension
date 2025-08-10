@@ -135,3 +135,9 @@ This repo includes .github/workflows/publish.yml. Tag a release like v0.1.0 to b
 ## License
 
 MIT
+
+## Extension icon
+
+- Place your PNG icon at `media/extension-icon-light.png` (recommended 256×256, square, transparent background).
+- The listing icon is configured in `package.json` via the `icon` field.
+- This repo keeps an SVG source (`media/extension-icon-light.svg`) and generates PNG during prepublish (`npm run build:icons`). To improve rasterization, install optional dependency `canvas`.
