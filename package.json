@@ -2,7 +2,7 @@
   "name": "quick-access-dashboard",
   "displayName": "Quick Access Tiles",
   "description": "Customizable quick access tile panel for files, URLs, and commands with hierarchical settings.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "DmitriBatulin",
   "repository": {
     "type": "git",
@@ -148,9 +148,8 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run build && npm run build:icons",
+    "vscode:prepublish": "npm run build ",
     "build": "tsc -p ./",
-    "build:icons": "node ./scripts/build-icons.js",
     "watch": "tsc -watch -p ./",
     "package": "vsce package",
     "publish:vsce": "vsce publish",
