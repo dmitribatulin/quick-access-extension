@@ -97,6 +97,9 @@ export function getWebviewContent(opts: {
       <title>Quick Access Tiles</title>
     </head>
     <body tabindex="0">
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Search" />
+      </div>
       <div class="page-wrapper">
         ${tiles.length ? tileHtml : getNoTilesMessage()}
       </div>
