@@ -140,7 +140,7 @@ body {
   .tile-grid {
     gap: 14px 20px !important;
   }
-  
+
   .tile {
     width: 144px !important;
     height: 48px !important;
@@ -148,16 +148,16 @@ body {
     max-height: 48px !important;
     gap: 8px !important;
   }
-  
+
   .tile.square {
     width: 48px !important;
     height: 48px !important;
   }
-  
+
   .icon-box {
     font-size: 17px !important;
   }
-  
+
   .icon-box img,
   .icon-box svg,
   .icon-box .qtiles-default-icon svg {
@@ -166,36 +166,36 @@ body {
     width: 67% !important;
     height: 67% !important;
   }
-  
+
   .tile.square .icon-box {
     width: 100% !important;
     height: 100% !important;
   }
-  
+
   .tile-content {
     margin-top: 2px !important;
     padding-right: 5px !important;
     max-height: 48px !important;
     justify-content: center !important;
   }
-  
+
   .tile-title {
     font-size: 12px !important;
     margin: 0 !important;
     line-height: 1.2 !important;
   }
-  
+
   .tile-desc {
     opacity: 0 !important;
     height: 0 !important;
     margin: 0 !important;
     overflow: hidden !important;
   }
-  
+
   .badge-actions {
     opacity: 0 !important;
   }
-  
+
   .dashboard-watermark {
     font-size: 48px !important;
   }

@@ -1,0 +1,176 @@
+{
+  // Quick Access Dashboard Example Configuration
+  // This file demonstrates all available configuration options
+
+  "quickAccessTiles.tileGroups": [
+    {
+      "groupName": "Project home",
+      "tiles": [
+        {
+          "name": "README",
+          "description": "Project documentation",
+          "file": "README.md",
+          "icon": "📄",
+          "backgroundColor": "#1e3a8a",
+          "textColor": "#ffffff"
+        },
+        {
+          "name": "JIRA",
+          "description": "May work",
+          "file": "package.json",
+          "icon": "https://cdn.worldvectorlogo.com/logos/jira-1.svg",
+          "url": "https://jira.example.com",
+        },
+        {
+          "name": "Confluence",
+          "description": "Documentation",
+          "file": "src/extension.ts",
+          "icon": "https://icon.icepanel.io/Technology/svg/Confluence.svg",
+          "url": "https://confluence.example.com",
+        },
+        {
+          "name": "GitLab",
+          "description": "Project sorce SCM",
+          "icon": "https://cdn.worldvectorlogo.com/logos/gitlab.svg",
+          "url": "https://gitlab.example.com",
+        }
+      ]
+    },
+    {
+      "groupName": "Development Tools",
+      "tiles": [
+        {
+          "name": "Build",
+          "description": "Compile TypeScript",
+          "command": "npm run build",
+          "shouldOpenTerminal": true,
+          "icon": "🔨",
+          "displaySquare": true
+        },
+        {
+          "name": "Watch",
+          "description": "Build in watch mode",
+          "command": "npm run watch",
+          "shouldOpenTerminal": true,
+          "icon": "👁️",
+          "displaySquare": true
+        },
+        {
+          "name": "Package",
+          "description": "Create VSIX package",
+          "command": "npm run package",
+          "shouldOpenTerminal": true,
+          "icon": "📦",
+          "displaySquare": true
+        },
+        {
+          "name": "Test Debug",
+          "description": "Launch extension host",
+          "command": "workbench.action.debug.start",
+          "icon": "🐛",
+        }
+      ]
+    },
+    {
+      "groupName": "Configuration",
+      "tiles": [
+        {
+          "name": "Settings",
+          "description": "Open extension settings",
+          "command": "workbench.action.openSettings",
+          "icon": "⚙️",
+        },
+        {
+          "name": "Keybindings",
+          "description": "Keyboard shortcuts",
+          "command": "workbench.action.openGlobalKeybindings",
+          "icon": "⌨️",
+        },
+        {
+          "name": "User Config",
+          "description": "Global settings file",
+          "file": "${userHome}/.vscode/settings.json",
+          "icon": "👤",
+          "backgroundColor": "#06b6d4"
+        }
+      ]
+    },
+    {
+      "groupName": "External Links",
+      "tiles": [
+        {
+          "name": "VS Code API",
+          "description": "Extension development docs",
+          "url": "https://code.visualstudio.com/api",
+          "icon": "📚",
+        },
+        {
+          "name": "TypeScript",
+          "description": "Language documentation",
+          "url": "https://www.typescriptlang.org/docs/",
+          "icon": "🔷",
+        },
+        {
+          "name": "GitHub Repo",
+          "description": "Project repository",
+          "url": "https://github.com/dmitribatulin/quick-access-extension",
+          "icon": "🐙",
+          "backgroundColor": "#24292e",
+          "displaySquare": true
+        }
+      ]
+    },
+    {
+      "groupName": "Multi-Action Examples",
+      "tiles": [
+        {
+          "name": "All-in-One",
+          "description": "Opens README, site, runs echo",
+          "file": "README.md",
+          "url": "https://code.visualstudio.com",
+          "command": "echo 'Hello from Quick Access Tiles!'",
+          "shouldOpenTerminal": true,
+          "icon": "🚀",
+        },
+        {
+          "name": "File + Command",
+          "description": "Open package.json and install deps",
+          "file": "package.json",
+          "command": "npm install",
+          "shouldOpenTerminal": true,
+          "icon": "⬇️",
+        }
+      ]
+    }
+  ],
+
+  // Global Dashboard Settings
+  "quickAccessDashboard.dashboardDisplayName": "My Dash",
+  "quickAccessDashboard.displaySquare": false,
+  "quickAccessDashboard.showInEditorTitle": true,
+  "quickAccessDashboard.showInStatusBar": true,
+  "quickAccessDashboard.showInPanelTitle": false,
+
+  // Default Settings for All Tiles
+  "quickAccessDashboard.defaultIcon": {
+    "type": "codicon",
+    "name": "file"
+  },
+  "quickAccessDashboard.defaultAction": {
+    "type": "command",
+    "command": "workbench.action.showCommands"
+  },
+
+  // Custom Styling
+  "quickAccessDashboard.customCSS": [
+    "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }",
+    ".dashboard-container { max-width: 1200px; margin: 0 auto; }",
+    ".tile:hover { transform: translateY(-2px); transition: transform 0.2s ease; }"
+  ],
+
+  // Custom JavaScript
+  "quickAccessDashboard.customJS": [
+    "console.log('Quick Access Dashboard loaded');",
+    "// Add custom event listeners or functionality here"
+  ]
+}
