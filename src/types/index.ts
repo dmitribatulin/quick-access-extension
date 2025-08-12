@@ -12,6 +12,7 @@ export interface TileConfig {
   shouldOpenTerminal?: boolean;
   commandCwd?: string;
   iconSize?: number;
+  displaySquare?: boolean;
 }
 
 export interface TileGroupConfig {

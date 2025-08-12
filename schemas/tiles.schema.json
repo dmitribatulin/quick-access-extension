@@ -18,7 +18,8 @@
         "command": { "type": "string" },
         "shouldOpenTerminal": { "type": "boolean" },
         "commandCwd": { "type": "string" },
-        "iconSize": { "type": "number" }
+        "iconSize": { "type": "number" },
+        "displaySquare": { "type": "boolean" }
       },
       "required": ["name"],
       "additionalProperties": false

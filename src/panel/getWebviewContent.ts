@@ -41,6 +41,22 @@ export function getWebviewContent(opts: {
             .filter((k) => (tile as any)[k])
             .map((k) => `<span>${k}</span>`)
             .join("");
+          
+          // Square mode: only icon with tooltip
+          if (tile.displaySquare) {
+            const tooltipText = tile.description ? `${tile.name} - ${tile.description}` : tile.name;
+            return `
+            <div class="tile square"
+              tabindex="0"
+              data-tile='${JSON.stringify(dataForAttr)}'
+              style="--tile-icon-bg:${iconBg};--tile-base-border:${baseBorder};"
+              title="${escapeHtml(tooltipText)}"
+              >
+                <div class="icon-box">${iconRendered}</div>
+            </div>`;
+          }
+          
+          // Regular mode: icon + text + badges
           return `
           <div class="tile"
             tabindex="0"
