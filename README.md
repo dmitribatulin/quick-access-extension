@@ -24,6 +24,8 @@ A Visual Studio Code extension that shows a customizable panel of tiles for quic
 
 ## Configure tiles
 
+For a complete demonstration of all features, see [example-settings.json](https://github.com/dmitribatulin/quick-access-extension/blob/main/example-settings.jsonc) which includes:
+
 Open Settings (JSON) and add groups and tiles. Example:
 
 ```jsonc
@@ -172,6 +174,50 @@ These arrays merge hierarchically (User < Workspace < Folder). CSS loads after t
 
 - quickAccessTiles.openPanel — Open Quick Access Tiles
 - quickAccessTiles.refresh — Re-resolve configuration and re-render
+
+## Changelog
+
+### [0.0.6]
+
+- Full responsive design with proportional tile scaling (50% smaller on screens ≤768px)
+- Smooth 200ms transitions between display modes with percentage-based sizing system
+- Mini-mode improvements: hidden descriptions/badges, 12px title font, vertical centering
+- Fixed CSS syntax errors and eliminated "jumping" during responsive transitions
+
+### [0.0.5]
+
+- Real-time search functionality with Ctrl+F hotkey and input field at panel top
+- Bidirectional keyboard navigation between search and tiles with focus management
+- Up arrow from first tile row returns focus to search field
+- Removed visual divider between search and content areas
+
+### [0.0.4]
+
+- Full keyboard navigation with arrow keys and Enter/Space activation
+- Keyboard focus indicators and accessible navigation patterns
+- Improved focus management and visual feedback
+- Grid-based navigation system for tiles
+
+### [0.0.3]
+
+- Square tile display mode (`displaySquare` property) for compact 96x96px icon-only tiles
+- Dashboard watermark feature (`dashboardDisplayName` setting)
+- Tooltip support for square tiles
+- Enhanced tile layout options for better space utilization
+
+### [0.0.2]
+
+- Complete UI redesign with improved styling and VS Code design alignment
+- Enhanced tile hover effects, borders, and badge positioning
+- Better icon handling and fallback systems
+- Refined typography, spacing, and visual consistency
+
+### [0.0.1]
+
+- Initial WebviewPanel-based tile dashboard with hierarchical configuration system
+- Multi-action tiles supporting file/URL/command execution with custom CSS/JS injection
+- Icon resolution with theme adaptation and SVG recoloring
+- Extension integration with editor buttons, command palette, and configurable UI placement
 
 ## License
 
