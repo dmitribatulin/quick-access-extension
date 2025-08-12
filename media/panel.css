@@ -66,6 +66,13 @@ body {
   border-color: var(--vscode-textLink-foreground);
 }
 
+/* Keyboard navigation focus indicator */
+.tile.keyboard-focused {
+  border-color: var(--vscode-focusBorder) !important;
+  outline: 2px solid var(--vscode-focusBorder);
+  outline-offset: -2px;
+}
+
 /* Square mode: compact icon-only tiles */
 .tile.square {
   width: 96px;

@@ -96,7 +96,7 @@ export function getWebviewContent(opts: {
       ${customCssLinks}
       <title>Quick Access Tiles</title>
     </head>
-    <body>
+    <body tabindex="0">
       <div class="page-wrapper">
         ${tiles.length ? tileHtml : getNoTilesMessage()}
       </div>
