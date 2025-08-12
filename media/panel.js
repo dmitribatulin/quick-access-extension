@@ -69,7 +69,9 @@
   function navigateTiles(direction) {
     if (tiles.length === 0) return;
 
-    const tilesPerRow = Math.floor(window.innerWidth / 340);
+    // Responsive tile width calculation
+    const tileWidth = window.innerWidth <= 768 ? 164 : 328; // 144px + gap
+    const tilesPerRow = Math.floor(window.innerWidth / tileWidth);
 
     switch(direction) {
       case 'up':
