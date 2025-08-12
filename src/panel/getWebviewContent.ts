@@ -41,7 +41,7 @@ export function getWebviewContent(opts: {
             .filter((k) => (tile as any)[k])
             .map((k) => `<span>${k}</span>`)
             .join("");
-          
+
           // Square mode: only icon with tooltip
           if (tile.displaySquare) {
             const tooltipText = tile.description ? `${tile.name} - ${tile.description}` : tile.name;
@@ -55,7 +55,7 @@ export function getWebviewContent(opts: {
                 <div class="icon-box">${iconRendered}</div>
             </div>`;
           }
-          
+
           // Regular mode: icon + text + badges
           return `
           <div class="tile"
