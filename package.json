@@ -62,6 +62,11 @@
           "default": 32,
           "description": "Logical icon size (px) hint for image/SVG scaling before final constraints. Actual rendered max may be capped by layout (currently 64px)."
         },
+        "quickAccessTiles.dashboardDisplayName": {
+          "type": "string",
+          "default": "",
+          "description": "Optional dashboard display name shown as large watermark text in the bottom-right corner of the panel. Leave empty to hide."
+        },
         "quickAccessTiles.tileGroups": {
           "type": "array",
           "description": "Ordered collection of tile groups. Each group defines a name and an array of tiles (maintaining declared order). Tiles can perform multiple actions: open file, open URL, run command.",

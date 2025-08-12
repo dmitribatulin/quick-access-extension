@@ -13,12 +13,15 @@ export class TileResolver {
     const tileGroups = this.mergeArraySetting<TileGroupConfig>("tileGroups");
     const customCssFiles = this.mergeArraySetting<string>("customCssFiles");
     const customJsFiles = this.mergeArraySetting<string>("customJsFiles");
+    const dashboardDisplayName =
+      vscode.workspace.getConfiguration("quickAccessTiles").get<string>("dashboardDisplayName") || "";
 
     return {
       tileGroups: tileGroups || [],
       customCssFiles: customCssFiles || [],
       customJsFiles: customJsFiles || [],
       defaultTileOptions,
+      dashboardDisplayName,
     };
   }
 

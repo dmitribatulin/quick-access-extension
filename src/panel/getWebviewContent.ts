@@ -84,6 +84,11 @@ export function getWebviewContent(opts: {
       <div class="page-wrapper">
         ${tiles.length ? tileHtml : getNoTilesMessage()}
       </div>
+      ${
+        config.dashboardDisplayName
+          ? `<div class="dashboard-watermark">${escapeHtml(config.dashboardDisplayName)}</div>`
+          : ""
+      }
       <div class="custom-js-note">Custom JS injected via settings</div>
       <script src="${jsUri}"></script>
       ${customJsScripts}

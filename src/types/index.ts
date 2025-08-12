@@ -28,5 +28,6 @@ export interface ExtensionConfig {
   tileGroups: TileGroupConfig[];
   customCssFiles: string[];
   customJsFiles: string[];
-  defaultTileOptions: Partial<Omit<TileConfig, 'name'>>;
+  defaultTileOptions: Partial<Omit<TileConfig, "name">>;
+  dashboardDisplayName?: string;
 }
