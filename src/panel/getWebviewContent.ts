@@ -12,7 +12,9 @@ export function getWebviewContent(opts: {
   const { webview, context, tiles, config } = opts;
 
   const mediaUri = (file: string) => webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, "media", file));
-  const cssUri = mediaUri("panel.css");
+  const baseCssUri = mediaUri("panel-base.css");
+  const themeCssUri =
+    config.displayTheme === "cyberpunk" ? mediaUri("theme-cyberpunk.css") : mediaUri("theme-default.css");
   const jsUri = mediaUri("panel.js");
 
   const grouped: Record<string, ResolvedTile[]> = {};
@@ -92,13 +94,16 @@ export function getWebviewContent(opts: {
     webview.cspSource
   } data:;" />
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-      <link rel="stylesheet" href="${cssUri}" />
+      <link rel="stylesheet" href="${baseCssUri}" />
+      <link rel="stylesheet" href="${themeCssUri}" />
       ${customCssLinks}
       <title>Quick Access Tiles</title>
     </head>
-    <body tabindex="0">
+    <body tabindex="0" class="${config.displayTheme === "cyberpunk" ? "cyberpunk-theme" : "default-theme"}">
       <div class="search-container">
-        <input type="text" id="search-input" class="search-input" placeholder="Search" />
+        <input type="text" id="search-input" class="search-input" placeholder="${
+          config.displayTheme === "cyberpunk" ? "神経検索 // NEURAL SEARCH" : "Search tiles..."
+        }" />
       </div>
       <div class="page-wrapper">
         ${tiles.length ? tileHtml : getNoTilesMessage()}

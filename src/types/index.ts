@@ -31,4 +31,5 @@ export interface ExtensionConfig {
   customJsFiles: string[];
   defaultTileOptions: Partial<Omit<TileConfig, "name">>;
   dashboardDisplayName?: string;
+  displayTheme?: "default" | "cyberpunk";
 }

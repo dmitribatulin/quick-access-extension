@@ -1,0 +1,116 @@
+/* Default VS Code theme styles */
+body.default-theme {
+  font-family: var(--vscode-font-family);
+  padding: 0 0 48px;
+  color: var(--vscode-foreground);
+  margin: 0;
+  background: var(--vscode-editor-background, #1e1e1e);
+}
+
+/* Search container at the top */
+.default-theme .search-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--vscode-editor-background, #1e1e1e);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-theme .search-input {
+  width: 100%;
+  max-width: 400px;
+  height: 28px;
+  padding: 4px 8px;
+  border: 1px solid var(--vscode-input-border, #3c3c3c);
+  border-radius: 2px;
+  background: var(--vscode-input-background, #3c3c3c);
+  color: var(--vscode-input-foreground, #cccccc);
+  font-family: var(--vscode-font-family);
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.default-theme .search-input:focus {
+  border-color: var(--vscode-focusBorder, #007acc);
+  outline: 1px solid var(--vscode-focusBorder, #007acc);
+  outline-offset: -1px;
+}
+
+.default-theme .search-input::placeholder {
+  color: var(--vscode-input-placeholderForeground, #767676);
+}
+
+.default-theme .tile-group-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.default-theme .tile {
+  border: 1px solid var(--tile-base-border, transparent);
+  background: var(--vscode-tab-activeBackground, var(--vscode-editor-background, #1e1e1e));
+  transition: border-color 0.12s ease;
+}
+
+.default-theme .tile:hover {
+  border-color: var(--vscode-textLink-foreground);
+  transform: translateY(-2px);
+}
+
+.default-theme .tile:focus {
+  outline: 2px solid var(--vscode-focusBorder);
+}
+
+.default-theme .tile.keyboard-focused {
+  border-color: var(--vscode-focusBorder) !important;
+  outline: 2px solid var(--vscode-focusBorder);
+  outline-offset: -2px;
+}
+
+.default-theme .icon-box {
+  background: var(--tile-icon-bg, #333);
+  color: currentColor;
+}
+
+.default-theme .tile-title {
+  font-weight: 600;
+  color: var(--vscode-foreground);
+}
+
+.default-theme .tile-desc {
+  opacity: 0.8;
+  color: var(--vscode-foreground);
+}
+
+.default-theme .badge-actions span {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--vscode-foreground);
+}
+
+.default-theme .dashboard-watermark {
+  color: var(--vscode-tab-activeForeground, var(--vscode-foreground));
+  opacity: 0.2;
+  font-family: var(--vscode-font-family);
+}
+
+.default-theme .empty-message {
+  background: var(--vscode-editor-background);
+  border: 1px solid var(--vscode-input-border, #3c3c3c);
+  color: var(--vscode-foreground);
+}
+
+.default-theme .empty-message a {
+  color: var(--vscode-textLink-foreground);
+  text-decoration: underline;
+}
+
+.default-theme .custom-js-note {
+  color: var(--vscode-descriptionForeground);
+  opacity: 0.55;
+}

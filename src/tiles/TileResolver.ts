@@ -15,6 +15,8 @@ export class TileResolver {
     const customJsFiles = this.mergeArraySetting<string>("customJsFiles");
     const dashboardDisplayName =
       vscode.workspace.getConfiguration("quickAccessTiles").get<string>("dashboardDisplayName") || "";
+    const displayTheme =
+      vscode.workspace.getConfiguration("quickAccessTiles").get<"default" | "cyberpunk">("displayTheme") || "default";
 
     return {
       tileGroups: tileGroups || [],
@@ -22,6 +24,7 @@ export class TileResolver {
       customJsFiles: customJsFiles || [],
       defaultTileOptions,
       dashboardDisplayName,
+      displayTheme,
     };
   }
 

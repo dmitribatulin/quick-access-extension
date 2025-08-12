@@ -145,32 +145,27 @@
   ],
 
   // Global Dashboard Settings
-  "quickAccessDashboard.dashboardDisplayName": "My Dash",
-  "quickAccessDashboard.displaySquare": false,
-  "quickAccessDashboard.showInEditorTitle": true,
-  "quickAccessDashboard.showInStatusBar": true,
-  "quickAccessDashboard.showInPanelTitle": false,
+  "quickAccessTiles.dashboardDisplayName": "My Dash",
+  "quickAccessTiles.displayTheme": "cyberpunk",
+  "quickAccessTiles.ui.showEditorTitleButton": true,
+  "quickAccessTiles.ui.showStatusBarButton": true,
+  "quickAccessTiles.ui.showPanelTitleButton": false,
 
   // Default Settings for All Tiles
-  "quickAccessDashboard.defaultIcon": {
-    "type": "codicon",
-    "name": "file"
-  },
-  "quickAccessDashboard.defaultAction": {
-    "type": "command",
-    "command": "workbench.action.showCommands"
+  "quickAccessTiles.defaultTileOptions": {
+    "backgroundColor": "#2d2d2d",
+    "borderColor": "#444444",
+    "textColor": "#ffffff",
+    "iconSize": 32
   },
 
   // Custom Styling
-  "quickAccessDashboard.customCSS": [
-    "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }",
-    ".dashboard-container { max-width: 1200px; margin: 0 auto; }",
-    ".tile:hover { transform: translateY(-2px); transition: transform 0.2s ease; }"
+  "quickAccessTiles.customCssFiles": [
+    "// Additional CSS files can be referenced here"
   ],
 
   // Custom JavaScript
-  "quickAccessDashboard.customJS": [
-    "console.log('Quick Access Dashboard loaded');",
-    "// Add custom event listeners or functionality here"
+  "quickAccessTiles.customJsFiles": [
+    "// Additional JS files can be referenced here"
   ]
 }

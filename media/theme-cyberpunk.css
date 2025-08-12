@@ -1,0 +1,478 @@
+/* Cyberpunk theme with VS Code accent colors */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap');
+
+body.cyberpunk-theme {
+  font-family: 'JetBrains Mono', var(--vscode-font-family), monospace;
+  padding: 0 0 48px;
+  color: var(--vscode-foreground);
+  margin: 0;
+  background: var(--vscode-editor-background, #1e1e1e);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Cyberpunk background effects */
+.cyberpunk-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(45deg, transparent 49%, rgba(0, 122, 204, 0.02) 50%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, rgba(0, 122, 204, 0.02) 50%, transparent 51%);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Scan lines effect */
+.cyberpunk-theme::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 50%, rgba(0, 122, 204, 0.01) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Search container - cyberpunk styled */
+.cyberpunk-theme .search-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--vscode-editor-background, #1e1e1e);
+  padding: 24px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 122, 204, 0.3);
+  position: relative;
+}
+
+.cyberpunk-theme .search-container::before {
+  content: '⚡ NEURAL INTERFACE';
+  position: absolute;
+  top: 4px;
+  left: 32px;
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cyberpunk-theme .search-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 32px;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--vscode-textLink-foreground), transparent);
+  opacity: 0.8;
+}
+
+.cyberpunk-theme .search-input {
+  width: 100%;
+  max-width: 500px;
+  height: 36px;
+  padding: 8px 16px;
+  border: 2px solid rgba(0, 122, 204, 0.2);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--vscode-input-foreground, #cccccc);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  box-sizing: border-box;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 122, 204, 0.1),
+    0 0 20px rgba(0, 122, 204, 0.05);
+}
+
+.cyberpunk-theme .search-input:focus {
+  border-color: var(--vscode-focusBorder);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 122, 204, 0.3),
+    0 0 30px rgba(0, 122, 204, 0.2),
+    0 0 0 2px rgba(0, 122, 204, 0.1);
+}
+
+.cyberpunk-theme .search-input::placeholder {
+  color: rgba(0, 122, 204, 0.4);
+  font-weight: 300;
+}
+
+.cyberpunk-theme .tile-group {
+  position: relative;
+}
+
+.cyberpunk-theme .tile-group::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 122, 204, 0.3) 20%,
+    rgba(0, 122, 204, 0.6) 50%,
+    rgba(0, 122, 204, 0.3) 80%,
+    transparent
+  );
+}
+
+.cyberpunk-theme .tile-group-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 24px;
+  letter-spacing: 2px;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.9;
+  position: relative;
+  padding-left: 24px;
+}
+
+.cyberpunk-theme .tile-group-title::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.cyberpunk-theme .tile-group-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 24px;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--vscode-textLink-foreground), transparent);
+  opacity: 0.8;
+}
+
+.cyberpunk-theme .tile {
+  border: 2px solid rgba(0, 122, 204, 0.15);
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.cyberpunk-theme .tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 122, 204, 0.3),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cyberpunk-theme .tile::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(0, 122, 204, 0.2);
+  border-left: none;
+  border-bottom: none;
+  opacity: 0.3;
+}
+
+.cyberpunk-theme .tile:hover {
+  border-color: rgba(0, 122, 204, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px) translateX(2px);
+  box-shadow:
+    0 8px 25px rgba(0, 122, 204, 0.15),
+    inset 0 1px 0 rgba(0, 122, 204, 0.2);
+}
+
+.cyberpunk-theme .tile:hover::before {
+  opacity: 1;
+}
+
+.cyberpunk-theme .tile:hover::after {
+  opacity: 0.8;
+  border-color: rgba(0, 122, 204, 0.6);
+}
+
+.cyberpunk-theme .tile:focus {
+  outline: 2px solid var(--vscode-focusBorder);
+  outline-offset: 2px;
+}
+
+.cyberpunk-theme .tile.keyboard-focused {
+  border-color: var(--vscode-focusBorder) !important;
+  outline: 2px solid var(--vscode-focusBorder);
+  outline-offset: 2px;
+  box-shadow: 0 0 20px rgba(0, 122, 204, 0.3);
+}
+
+.cyberpunk-theme .tile.square::after {
+  width: 8px;
+  height: 8px;
+  top: 1px;
+  right: 1px;
+}
+
+.cyberpunk-theme .icon-box {
+  background: linear-gradient(135deg, rgba(0, 122, 204, 0.08), rgba(0, 0, 0, 0.3));
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.9;
+  border-right: 1px solid rgba(0, 122, 204, 0.2);
+  position: relative;
+}
+
+.cyberpunk-theme .icon-box::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid rgba(0, 122, 204, 0.1);
+  pointer-events: none;
+}
+
+.cyberpunk-theme .icon-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 122, 204, 0.3),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cyberpunk-theme .tile:hover .icon-box {
+  background: linear-gradient(135deg, rgba(0, 122, 204, 0.15), rgba(0, 0, 0, 0.4));
+  color: var(--vscode-textLink-foreground);
+}
+
+.cyberpunk-theme .tile:hover .icon-box::after {
+  opacity: 1;
+}
+
+.cyberpunk-theme .icon-box img,
+.cyberpunk-theme .icon-box svg,
+.cyberpunk-theme .icon-box .qtiles-default-icon svg {
+  filter:
+    drop-shadow(0 0 5px rgba(0, 122, 204, 0.3))
+    saturate(1.2)
+    contrast(1.1);
+}
+
+.cyberpunk-theme .tile:hover .icon-box img,
+.cyberpunk-theme .tile:hover .icon-box svg,
+.cyberpunk-theme .tile:hover .icon-box .qtiles-default-icon svg {
+  filter:
+    drop-shadow(0 0 10px rgba(0, 122, 204, 0.5))
+    saturate(1.4)
+    contrast(1.2);
+}
+
+.cyberpunk-theme .icon-glyph {
+  text-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
+}
+
+.cyberpunk-theme .tile-content {
+  margin-top: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.cyberpunk-theme .tile-content::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 2px;
+  height: calc(100% + 8px);
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(0, 122, 204, 0.2) 20%,
+    rgba(0, 122, 204, 0.4) 50%,
+    rgba(0, 122, 204, 0.2) 80%,
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cyberpunk-theme .tile:hover .tile-content::before {
+  opacity: 1;
+}
+
+.cyberpunk-theme .tile-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.95);
+  transition: all 0.2s ease;
+}
+
+.cyberpunk-theme .tile:hover .tile-title {
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.95;
+  text-shadow: 0 0 8px rgba(0, 122, 204, 0.3);
+}
+
+.cyberpunk-theme .tile-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 300;
+  opacity: 0.6;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: none;
+  letter-spacing: 0.2px;
+  transition: all 0.2s ease;
+}
+
+.cyberpunk-theme .tile:hover .tile-desc {
+  opacity: 0.8;
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.7;
+}
+
+.cyberpunk-theme .badge-actions span {
+  background: rgba(0, 122, 204, 0.1);
+  border: 1px solid rgba(0, 122, 204, 0.2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0;
+  color: rgba(0, 122, 204, 0.7);
+  transition: all 0.2s ease;
+}
+
+.cyberpunk-theme .tile:hover .badge-actions span {
+  background: rgba(0, 122, 204, 0.15);
+  border-color: rgba(0, 122, 204, 0.4);
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.9;
+  box-shadow: 0 0 5px rgba(0, 122, 204, 0.2);
+}
+
+.cyberpunk-theme .empty-wrapper {
+  position: relative;
+}
+
+.cyberpunk-theme .empty-wrapper::before {
+  content: '未来へのアクセス';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  font-family: 'Orbitron', monospace;
+  font-size: 24px;
+  font-weight: 300;
+  color: rgba(0, 122, 204, 0.08);
+  z-index: -1;
+  letter-spacing: 4px;
+}
+
+.cyberpunk-theme .empty-message {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 122, 204, 0.15);
+  border-left: 4px solid rgba(0, 122, 204, 0.4);
+  backdrop-filter: blur(10px);
+  font-family: 'JetBrains Mono', monospace;
+  position: relative;
+}
+
+.cyberpunk-theme .empty-message::before {
+  content: '⚠ СИСТЕМНОЕ СООБЩЕНИЕ ⚠';
+  display: block;
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 122, 204, 0.2);
+}
+
+.cyberpunk-theme .empty-message a {
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.9;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 122, 204, 0.3);
+  transition: all 0.2s ease;
+}
+
+.cyberpunk-theme .empty-message a:hover {
+  color: var(--vscode-textLink-foreground);
+  border-bottom-color: var(--vscode-textLink-foreground);
+  opacity: 0.8;
+  text-shadow: 0 0 8px rgba(0, 122, 204, 0.4);
+}
+
+.cyberpunk-theme .custom-js-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--vscode-textLink-foreground);
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-left: 2px solid rgba(0, 122, 204, 0.3);
+}
+
+.cyberpunk-theme .dashboard-watermark {
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  color: rgba(0, 122, 204, 0.06);
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  text-shadow:
+    0 0 20px rgba(0, 122, 204, 0.1),
+    0 0 40px rgba(0, 122, 204, 0.05);
+}

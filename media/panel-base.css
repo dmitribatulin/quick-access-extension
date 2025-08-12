@@ -1,0 +1,268 @@
+/* Base styles shared by all themes */
+body {
+  padding: 0 0 48px;
+  margin: 0;
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 32px 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tile-group {
+  width: 100%;
+  margin: 40px 0 0;
+}
+
+.tile-group:first-child {
+  margin-top: 8px;
+}
+
+.tile-grid {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px 24px;
+  align-items: stretch;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  cursor: pointer;
+  width: 288px;
+  height: 96px;
+  min-height: 96px;
+  max-height: 96px;
+  box-sizing: content-box;
+  border-radius: 0;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.tile:active {
+  transform: translateY(-1px);
+}
+
+/* Square mode: compact icon-only tiles */
+.tile.square {
+  width: 96px;
+  height: 96px;
+  gap: 0;
+  padding: 0;
+}
+
+.tile.square .icon-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.tile.square .tile-content {
+  display: none;
+}
+
+/* Responsive tile sizing */
+@media (max-width: 768px) {
+  .search-container {
+    padding: 8px 16px;
+  }
+
+  .page-wrapper {
+    padding: 12px 16px 40px;
+  }
+
+  .tile-grid {
+    gap: 14px 20px !important;
+  }
+
+  .tile {
+    width: 144px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    gap: 8px !important;
+  }
+
+  .tile.square {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .tile.square .icon-box {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .tile-content {
+    margin-top: 2px !important;
+    padding-right: 5px !important;
+    max-height: 48px !important;
+    justify-content: center !important;
+  }
+
+  .tile-title {
+    font-size: 12px !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .tile-desc {
+    opacity: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .badge-actions {
+    opacity: 0 !important;
+  }
+
+  .dashboard-watermark {
+    font-size: 48px !important;
+  }
+}
+
+.icon-box {
+  flex: 0 0 auto;
+  width: 33.33%;
+  height: 100%;
+  aspect-ratio: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 600;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.icon-box img,
+.icon-box svg,
+.icon-box .qtiles-default-icon svg {
+  max-width: 67%;
+  max-height: 67%;
+  width: 67%;
+  height: 67%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+}
+
+.icon-glyph {
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+  margin: 0 auto;
+}
+
+.tile-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  max-height: 96px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.tile-title {
+  font-weight: 500;
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.3;
+  transition: all 0.2s ease;
+}
+
+.tile-desc {
+  font-size: 11px;
+  font-weight: 300;
+  opacity: 0.6;
+  margin: 0;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+
+.badge-actions {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  display: flex;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.badge-actions span {
+  padding: 2px 6px;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+.empty-wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 500px;
+  padding: 32px;
+}
+
+.custom-js-note {
+  position: fixed;
+  left: 16px;
+  bottom: 12px;
+  font-size: 10px;
+  font-weight: 300;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+}
+
+.dashboard-watermark {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  font-size: 96px;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: -999;
+  user-select: none;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.tile .qtiles-default-icon svg,
+.tile .tile-img-icon {
+  color: currentColor;
+  fill: currentColor;
+}
+
+/* Search functionality */
+.tile[style*="display: none"] {
+  display: none !important;
+}

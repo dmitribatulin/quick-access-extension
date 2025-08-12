@@ -83,6 +83,26 @@ Open Settings (JSON) and add groups and tiles. Example:
 
 You can combine file + url + command; they will all execute on click.
 
+## Display themes
+
+The extension supports two visual themes:
+
+### Default theme
+
+Standard VS Code styling that matches your current color theme.
+
+### Cyberpunk theme
+
+Japanese cyberpunk aesthetics with:
+
+- JetBrains Mono and Orbitron fonts
+- Animated scan lines and background effects  
+- VS Code accent color integration
+- Enhanced typography and geometric elements
+- Glowing hover effects and smooth transitions
+
+To switch themes, set `"quickAccessTiles.displayTheme": "cyberpunk"` in your settings.
+
 ## Display modes
 
 ### Regular tiles (default)
@@ -109,6 +129,7 @@ You can combine file + url + command; they will all execute on click.
 
 - **quickAccessTiles.tileGroups**: Array of tile groups (main configuration)
 - **quickAccessTiles.dashboardDisplayName**: Watermark text shown in bottom-right corner
+- **quickAccessTiles.displayTheme**: Visual theme (`"default"` or `"cyberpunk"`) - choose between standard VS Code styling or Japanese cyberpunk aesthetics
 - **quickAccessTiles.customCssFiles**: Array of CSS file paths/URLs to inject
 - **quickAccessTiles.customJsFiles**: Array of JavaScript file paths/URLs to inject
 
@@ -136,6 +157,8 @@ Applied to all tiles unless overridden per-tile:
 - No external icon libraries (e.g., Font Awesome) are used
 
 ## Configuration examples
+
+For a complete demonstration of all features, see [example-settings.json](https://github.com/dmitribatulin/quick-access-extension/blob/main/example-settings.jsonc) which includes:
 
 You can set defaults for all tiles and override per tile:
 
@@ -176,6 +199,10 @@ These arrays merge hierarchically (User < Workspace < Folder). CSS loads after t
 - quickAccessTiles.refresh — Re-resolve configuration and re-render
 
 ## Changelog
+
+### [0.0.7]
+
+- Added `cyberpunk` theme :)
 
 ### [0.0.6]
 
